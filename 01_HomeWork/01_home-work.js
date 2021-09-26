@@ -73,7 +73,8 @@ console.log('Прибуток - ' + prybutok);
 /////////// шаблонний рядок ///////////
 
 console.log(
-    ('Максимальна вартість = ' + Math.max(lopata, topor, kuvalda)), ('Мінімальна вартість = ' + Math.min(lopata, topor, kuvalda)), ('Сумма всіх = ' + usiTovary),
+    ('Максимальна вартість = ' + Math.max(lopata, topor, kuvalda)), ('Мінімальна вартість = ' + Math.min(lopata, topor, kuvalda)),
+    ('Сумма всіх = ' + usiTovary),
     ('Сумма всіх цілих = ' + usiTsiliTovary),
     ('Сумма всіх зменшених = ' + (Math.round(usiTsiliTovary/100))*100 ), ('Решта буде ' + reshta + ' грн'),
     ('Середня ціна - ' + middlePrice),

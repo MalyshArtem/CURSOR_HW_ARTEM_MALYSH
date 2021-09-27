@@ -1,8 +1,8 @@
 console.log("Перша домашка")
 
-let lopata = 15.678;
-let topor = 123.965;
-let kuvalda = 90.2345;
+const lopata = 15.678;   /////// замінив let на const //////
+const topor = 123.965;
+const kuvalda = 90.2345;
 
 console.log('Максимальна вартість = ' + Math.max(lopata, topor, kuvalda));
 
@@ -15,11 +15,7 @@ console.log('Сумма всіх = ' + usiTovary);
 ////////////////////////////
 //////// округлення ////////
 
-let newLopata = Math.floor(lopata);
-let newTopor = Math.floor(topor);
-let newKuvalda = Math.floor(kuvalda);
-
-let usiTsiliTovary = newLopata + newTopor + newKuvalda;
+let usiTsiliTovary = Math.floor(lopata) + Math.floor(topor) + Math.floor(kuvalda);   ///// видалив рядки, замінив на уже відомі змінні  ///////
 
 console.log('Сумма всіх цілих = ' + usiTsiliTovary);
 
@@ -28,29 +24,22 @@ console.log('Сумма всіх зменшених = ' + (Math.round(usiTsiliTo
 ///////////////////////////////////
 //////// парне чи не парне ////////
 
-if (usiTsiliTovary % 2 === 0) {
-    console.log("Є парним");
-}
-else
-{
-    console.log("Не є парним");
-}
-
+console.log(usiTsiliTovary % 2 === 0);  ///// вивів просто true false /////
 
 //////////////////////////////
 ///////// сума решти /////////
 
-let gotivka = 500;
+const gotivka = 500;      ///// замінив на let на const ////////
 
-let reshta = Math.abs(usiTovary - gotivka);
+let reshta = (gotivka - usiTovary);   ////// прибрав Math.abs /////
 
-console.log('Решта буде ' + reshta + " грн");
+console.log('Решта буде ' + reshta);
 
 
 ///////////////////////////////////////////
 /////////// середнє арифметичне ///////////
 
-let middlePrice = (usiTovary / 3).toFixed(2)
+let middlePrice = +(usiTovary / 3).toFixed(2)     ///// точно перетворив на число
 
 console.log('Середня ціна - ' + middlePrice);
 
@@ -58,14 +47,14 @@ console.log('Середня ціна - ' + middlePrice);
 ////////////////////////////////////////////
 ////////////////// знижка //////////////////
 
-let znyzhka = Math.floor(Math.random() * 101);  //чому 101 а не 100 - тому що - *100 - виводить від 0 до 100, а *101 - від 1 до 100.
+const znyzhka = Math.floor(Math.random() * 101);  //чому 101 а не 100 - тому що - *100 - виводить від 0 до 100, а *101 - від 1 до 100.
 console.log('Знижка - ' + znyzhka);
 
-let sobivartist = usiTovary - znyzhka;
+const sobivartist = (usiTovary - (usiTovary*znyzhka/100).toFixed(2));   ///// виправив обрахунок
 
-console.log('Собівартість - ' + sobivartist.toFixed(2));
+console.log('Собівартість - ' + sobivartist);
 
-let prybutok = usiTovary / 2 - znyzhka;
+const prybutok = Math.round(usiTovary / 2 - (usiTovary * znyzhka / 100)) ;  ///// виправив обрахунок
 console.log('Прибуток - ' + prybutok);
 
 

@@ -1,37 +1,45 @@
-let chyslo_N;
-let chyslo_M;
+let number_N;  //// перейменував англ
+let number_M;
+
+alert("Друге число повинно бути більше за перше. Тоді спрацює!!!")
 
 //////////////// отримати число N ////////////////
 do {
-  chyslo_N = +prompt('Введіть будь ласка перше ціле число', '');
-} while (!Number.isInteger(chyslo_N));
+  number_N = +prompt('Введіть будь ласка перше ціле число', '');
+} while (isNaN(number_N) || number_N % 1 !== 0 || number_N.length === '');  /// змінив умови
 
-console.log(chyslo_N);
+console.log(number_N);
 
 //////////////// отримати число M ////////////////
 do {
-  chyslo_M = +prompt('Введіть будь ласка друге ціле число', '');
-} while (!Number.isInteger(chyslo_M));
+  number_M = +prompt('Введіть будь ласка друге ціле число', '');
+} while (isNaN(number_M) || number_M % 1 !== 0 || number_M.length === '');
 
-console.log(chyslo_M);
+console.log(number_M);
 
 
 //////////////// булевий параметр ////////////////
 
-const countUsiParni = confirm('Чи потрібно пропустити при підрахунку суми парні числа?');
+const countAllEvenNumbers = confirm('Чи потрібно пропустити при підрахунку суми парні числа?');
 
 
-let sumaUsih_N_M = 0;
-for (let i = chyslo_N; i <= chyslo_M; i++) {
-  if (countUsiParni === true) {
-    if (i % 2 !== 0) {
-      sumaUsih_N_M += i;
+let sumAllNumbers_N_M = 0;
+
+  if (number_N < number_M)
+  {
+    for (let i = number_N; i <= number_M; i++)
+    {
+      if (countAllEvenNumbers === true && i % 2 === 0)
+      {
+        continue;
+      } else {
+        sumAllNumbers_N_M += i;
+      }
     }
-  } else {
-    sumaUsih_N_M += i;
+    alert(`Сума всіх чисел від ${number_N} та до ${number_M} : ${sumAllNumbers_N_M}`);
   }
-}
+  else if (number_N > number_M) {
+    alert('Ну що, спробував? Не спрацювало!?');
+  }
 
-alert(`Сума всіх чисел від ${chyslo_N} та до ${chyslo_M} : ${sumaUsih_N_M}`);
-
-console.log(`Сума всіх чисел від ${chyslo_N} та до ${chyslo_M} : ${sumaUsih_N_M}`);
+console.log(`Сума всіх чисел від ${number_N} та до ${number_M} : ${sumAllNumbers_N_M}`);

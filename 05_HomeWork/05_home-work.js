@@ -3,8 +3,7 @@
 const getRandomArray = (length, min, max) => {
   const randomArray = [];
   for (let i = 0; i < length; i++) {
-    const randomNumber = Math.floor(Math.random() * (max - min) + min);
-    randomArray.push(randomNumber);
+    randomArray.push(Math.floor(Math.random() * (max - min) + min + 1));
   }
   return randomArray;
 };
@@ -12,34 +11,33 @@ const getRandomArray = (length, min, max) => {
 ///// TASK 3 /////
 
 const getAverage = (...numbers) => {
-  const arr = numbers.filter((number) => Number.isInteger(number)); /// запишемо в масив цілі числа
-  //console.log('масив - ' + arr)
-  const sumAllNumbers = arr.reduce((sum, nextNumber) => sum + nextNumber); /// сума всіх чисел
-  //console.log('сума всіх - ' + sumAllNumbers);
-  const averageNumber = +(sumAllNumbers / arr.length); ///
-  return averageNumber;
+  const arr = numbers.filter((number) => Number.isInteger(number));
+  const sumAllNumbers = arr.reduce((sum, nextNumber) => sum + nextNumber);
+  return sumAllNumbers / arr.length;
 };
 
 ///// TASK 4 /////
+
 const getMedian = (...numbers) => {
   const arrayOfAnyNumbers = numbers.filter((number) => Number.isInteger(number)).sort((a, b) => a - b);
-  // console.log('такий масив - ' + arrayOfAnyNumbers);
-  // якщо парна кількість елементів
+  const middleOfValues = arrayOfAnyNumbers.length / 2;
   if (arrayOfAnyNumbers.length % 2) {
-    return arrayOfAnyNumbers[Math.floor(arrayOfAnyNumbers.length / 2)];
-  // якщо непарна кількість елементів
+    return arrayOfAnyNumbers[Math.floor(middleOfValues)];
   } else {
-    return (arrayOfAnyNumbers[arrayOfAnyNumbers.length / 2] + arrayOfAnyNumbers[arrayOfAnyNumbers.length / 2 - 1]) / 2;
+    return (arrayOfAnyNumbers[middleOfValues] + arrayOfAnyNumbers[middleOfValues - 1]) / 2;
   }
 };
 
 ///// TASK 5 /////
+
 const filterEvenNumbers = (...numbers) => numbers.filter((number) => number % 2);
 
 ///// TASK 6 /////
+
 const countPositiveNumber = (...numbers) => numbers.filter((number) => number > 0).length;
 
 ///// TASK 7 /////
+
 const getDividedByFive = (...numbers) => numbers.filter((number) => number % 5 === 0);
 
 console.log(getRandomArray(15, 5, 28));
